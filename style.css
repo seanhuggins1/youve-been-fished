@@ -58,19 +58,6 @@ h1 {
   50% { transform: translateY(8px) rotate(2deg); }
 }
 
-.lesson {
-  display: inline-block;
-  margin: 1.4vh auto 0;
-  padding: .45em 1em;
-  max-width: min(34em, 100%);
-  font-family: "Nunito", system-ui, sans-serif;
-  font-weight: 800;
-  font-size: clamp(.85rem, 2.2vw, 1.15rem);
-  color: #1d3b14;
-  background: rgba(255, 255, 255, .78);
-  border-radius: 999px;
-}
-
 /* Fish: bottom center, reaching up to the midpoint of the screen */
 .fish-wrap {
   position: fixed;
