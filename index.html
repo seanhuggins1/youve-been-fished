@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>You've Been Fished!</title>
+<meta name="description" content="Never scan a QR code dangling from a stranger's fishing rod.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎣</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Serene lake background -->
+<svg class="lake" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7fb4e0"/>
+      <stop offset=".45" stop-color="#bcd8ec"/>
+      <stop offset=".8" stop-color="#fbd9b4"/>
+      <stop offset="1" stop-color="#ffc999"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9cc3d6"/>
+      <stop offset=".35" stop-color="#5f97b3"/>
+      <stop offset="1" stop-color="#2a5d7a"/>
+    </linearGradient>
+    <radialGradient id="sunGlow">
+      <stop offset="0" stop-color="#fff6d8" stop-opacity="1"/>
+      <stop offset=".25" stop-color="#ffe7a8" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#ffd18a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sunPath" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff2c7" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#fff2c7" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="620" fill="url(#sky)"/>
+  <circle cx="1080" cy="560" r="260" fill="url(#sunGlow)"/>
+  <circle cx="1080" cy="560" r="58" fill="#fff4d6"/>
+
+  <!-- clouds -->
+  <g fill="#fff" opacity=".75" class="clouds">
+    <ellipse cx="260" cy="170" rx="130" ry="26"/><ellipse cx="330" cy="150" rx="80" ry="30"/>
+    <ellipse cx="1300" cy="120" rx="150" ry="24"/><ellipse cx="1240" cy="104" rx="70" ry="26"/>
+    <ellipse cx="760" cy="230" rx="100" ry="16"/>
+  </g>
+
+  <!-- far mountains -->
+  <path d="M0 520 L140 400 L250 460 L400 330 L540 450 L650 390 L800 300 L950 430 L1060 370 L1200 280 L1350 420 L1460 360 L1600 440 L1600 620 L0 620Z" fill="#a9b9cf"/>
+  <!-- near hills -->
+  <path d="M0 570 L180 480 L330 540 L470 470 L640 545 L820 470 L1000 550 L1180 480 L1360 545 L1500 500 L1600 530 L1600 620 L0 620Z" fill="#7d93ad"/>
+  <!-- treeline -->
+  <path id="trees" fill="#2f4a46" d="M0 620 L0 585 L12 560 L24 585 L36 548 L50 585 L62 565 L74 585 L90 540 L106 585 L118 562 L130 585 L146 552 L162 585 L176 570 L190 585 L206 545 L222 585 L236 566 L250 585 L268 556 L284 585 L298 572 L312 585 L330 548 L346 585 L360 568 L376 585 L392 552 L410 585 L426 570 L440 585 L458 542 L474 585 L490 565 L504 585 L520 556 L538 585 L552 572 L566 585 L584 550 L600 585 L616 566 L632 585 L650 546 L666 585 L680 570 L694 585 L712 556 L728 585 L742 568 L758 585 L776 550 L792 585 L806 572 L820 585 L838 544 L856 585 L870 566 L884 585 L902 556 L918 585 L934 570 L948 585 L966 548 L982 585 L996 566 L1012 585 L1030 554 L1046 585 L1060 572 L1074 585 L1092 546 L1108 585 L1122 566 L1138 585 L1156 552 L1172 585 L1186 570 L1200 585 L1218 542 L1236 585 L1250 564 L1264 585 L1282 554 L1298 585 L1312 572 L1326 585 L1344 548 L1362 585 L1376 566 L1392 585 L1410 552 L1426 585 L1440 570 L1456 585 L1474 544 L1490 585 L1506 566 L1520 585 L1538 556 L1556 585 L1570 570 L1586 585 L1600 552 L1600 620Z"/>
+
+  <!-- water -->
+  <rect y="620" width="1600" height="380" fill="url(#water)"/>
+  <!-- treeline reflection -->
+  <use href="#trees" transform="translate(0 1240) scale(1 -1)" opacity=".35"/>
+  <!-- sun path on water -->
+  <path d="M1040 622 L1120 622 L1220 1000 L940 1000Z" fill="url(#sunPath)" opacity=".55"/>
+  <!-- shimmering ripples -->
+  <g stroke="#e9f5fb" stroke-linecap="round" class="ripples">
+    <line x1="980" y1="650" x2="1180" y2="650" stroke-width="3"/>
+    <line x1="1010" y1="690" x2="1150" y2="690" stroke-width="3"/>
+    <line x1="960" y1="740" x2="1200" y2="740" stroke-width="4"/>
+    <line x1="1000" y1="800" x2="1160" y2="800" stroke-width="4"/>
+    <line x1="200" y1="700" x2="360" y2="700" stroke-width="3"/>
+    <line x1="520" y1="760" x2="700" y2="760" stroke-width="3"/>
+    <line x1="1320" y1="860" x2="1500" y2="860" stroke-width="4"/>
+    <line x1="120" y1="900" x2="320" y2="900" stroke-width="4"/>
+    <line x1="700" y1="660" x2="820" y2="660" stroke-width="2"/>
+  </g>
+  <!-- foreground reeds -->
+  <g stroke="#28402f" stroke-width="7" stroke-linecap="round" fill="none">
+    <path d="M40 1000 Q50 880 30 800"/><path d="M70 1000 Q80 860 110 770"/><path d="M100 1000 Q95 900 70 850"/>
+    <path d="M1520 1000 Q1530 880 1500 790"/><path d="M1555 1000 Q1560 870 1590 780"/><path d="M1580 1000 Q1570 900 1545 860"/>
+  </g>
+  <g fill="#6b4a2b">
+    <rect x="22" y="790" width="16" height="48" rx="8" transform="rotate(-12 30 814)"/>
+    <rect x="1494" y="780" width="16" height="48" rx="8" transform="rotate(-14 1502 804)"/>
+  </g>
+</svg>
+
+<canvas id="money" aria-hidden="true"></canvas>
+
+<main>
+  <h1>You've been fished!</h1>
+  <p class="lesson">Lesson learned: never scan a QR code dangling from a stranger's fishing rod. 🎣</p>
+</main>
+
+<!-- The talking fish, vertical edition -->
+<div class="fish-wrap">
+<svg class="fish" viewBox="0 0 320 680" role="img" aria-label="A singing wall-mounted bass, mouth flapping">
+  <defs>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9a6334"/>
+      <stop offset=".5" stop-color="#7a4a24"/>
+      <stop offset="1" stop-color="#5a3519"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2f5a24"/>
+      <stop offset=".45" stop-color="#5d8b37"/>
+      <stop offset=".78" stop-color="#a7b85a"/>
+      <stop offset="1" stop-color="#e8e2a6"/>
+    </linearGradient>
+    <linearGradient id="brass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6dc8a"/>
+      <stop offset=".5" stop-color="#c99a3a"/>
+      <stop offset="1" stop-color="#e8c56a"/>
+    </linearGradient>
+    <pattern id="scales" width="16" height="12" patternUnits="userSpaceOnUse">
+      <path d="M0 12 Q8 0 16 12" fill="none" stroke="#1e3b17" stroke-opacity=".28" stroke-width="1.4"/>
+    </pattern>
+  </defs>
+
+  <!-- plaque -->
+  <rect x="18" y="8" width="284" height="664" rx="40" fill="url(#wood)"/>
+  <rect x="30" y="20" width="260" height="640" rx="32" fill="none" stroke="#3e230e" stroke-opacity=".45" stroke-width="3"/>
+  <g stroke="#3e230e" stroke-opacity=".18" stroke-width="2" fill="none">
+    <path d="M50 80 Q70 300 50 600"/><path d="M270 60 Q250 330 272 620"/><path d="M90 40 Q110 200 96 260"/>
+  </g>
+  <!-- brass plate -->
+  <rect x="70" y="608" width="180" height="40" rx="6" fill="url(#brass)" stroke="#8a6420" stroke-width="2"/>
+  <text x="160" y="634" text-anchor="middle" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#4a330c" letter-spacing="1">CATCH OF THE DAY</text>
+
+  <g class="whole-fish">
+    <!-- tail -->
+    <g class="tail">
+      <path d="M160 500 C130 530 90 555 72 592 C110 585 140 572 160 556 C180 572 210 585 248 592 C230 555 190 530 160 500Z" fill="#4c7a2e" stroke="#1f3a14" stroke-width="3" stroke-linejoin="round"/>
+      <g stroke="#1f3a14" stroke-opacity=".5" stroke-width="2"><path d="M160 515 L100 582"/><path d="M160 515 L130 575"/><path d="M160 515 L190 575"/><path d="M160 515 L220 582"/></g>
+    </g>
+
+    <!-- dorsal fins (left / back side) -->
+    <path d="M78 190 C40 205 30 260 42 300 C55 290 64 270 72 262 C58 300 56 340 70 380 L92 360 Z" fill="#3d6a26" stroke="#1f3a14" stroke-width="3" stroke-linejoin="round"/>
+    <g stroke="#1f3a14" stroke-opacity=".5" stroke-width="2"><path d="M80 210 L46 250"/><path d="M80 240 L46 290"/><path d="M80 290 L62 340"/></g>
+    <!-- belly fins (right side) -->
+    <path d="M246 330 C275 340 286 370 282 400 C268 390 255 376 238 372 Z" fill="#7d9a3c" stroke="#1f3a14" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M212 430 C238 440 246 468 238 490 C225 478 212 466 200 462 Z" fill="#7d9a3c" stroke="#1f3a14" stroke-width="3" stroke-linejoin="round"/>
+
+    <!-- mouth interior (shows when jaw opens) -->
+    <path d="M186 132 L150 44 C168 30 196 30 214 46 Z" fill="#5b0f16"/>
+    <path d="M186 130 L170 80 C182 74 196 80 200 92 Z" fill="#d55a6a"/>
+
+    <!-- body -->
+    <path d="M150 42 C104 80 66 170 64 270 C62 370 104 450 136 506 L184 506 C214 450 258 370 258 272 C258 200 236 150 186 132 C176 104 162 70 150 42Z"
+          fill="url(#body)" stroke="#1f3a14" stroke-width="3.5" stroke-linejoin="round"/>
+    <path d="M150 42 C104 80 66 170 64 270 C62 370 104 450 136 506 L184 506 C214 450 258 370 258 272 C258 200 236 150 186 132 C176 104 162 70 150 42Z" fill="url(#scales)"/>
+    <!-- lateral line -->
+    <path d="M118 210 C140 300 150 400 160 500" fill="none" stroke="#1f3a14" stroke-opacity=".35" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round"/>
+    <!-- dark mottling -->
+    <g fill="#1f3a14" opacity=".22">
+      <ellipse cx="100" cy="300" rx="16" ry="28"/><ellipse cx="128" cy="360" rx="12" ry="20"/><ellipse cx="96" cy="400" rx="10" ry="18"/><ellipse cx="142" cy="438" rx="9" ry="14"/>
+    </g>
+    <!-- gill plate -->
+    <path d="M86 196 C120 222 176 222 236 196" fill="none" stroke="#1f3a14" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M92 182 C124 204 170 204 222 182" fill="none" stroke="#1f3a14" stroke-opacity=".4" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- pectoral fin, flapping -->
+    <path class="pec" d="M180 230 C214 236 236 260 238 292 C220 284 196 270 176 252 Z" fill="#8fa84a" stroke="#1f3a14" stroke-width="3" stroke-linejoin="round"/>
+
+    <!-- eye -->
+    <g class="eye">
+      <circle cx="128" cy="118" r="21" fill="#f3d23a" stroke="#1f3a14" stroke-width="3"/>
+      <circle cx="132" cy="116" r="11" fill="#111"/>
+      <circle cx="136" cy="111" r="4" fill="#fff"/>
+    </g>
+    <!-- nostril -->
+    <circle cx="146" cy="72" r="3" fill="#1f3a14" opacity=".6"/>
+
+    <!-- lower jaw: hinges at the mouth corner -->
+    <g class="jaw">
+      <path d="M186 132 L152 44 C176 30 220 50 240 96 C248 120 228 142 186 132Z" fill="#c9cf8a" stroke="#1f3a14" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M186 132 L152 44 C176 30 220 50 240 96 C248 120 228 142 186 132Z" fill="url(#scales)" opacity=".5"/>
+      <path d="M160 52 L200 125" stroke="#1f3a14" stroke-opacity=".35" stroke-width="2"/>
+    </g>
+  </g>
+</svg>
+</div>
+
+<script src="money.js"></script>
+</body>
+</html>
